@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1706223242 source:d:\2ºsemestre\algoritmos\atividades-fora\project-sobremesa\main.c
+	"main_header.h"
+	"controls.c"
+	"menu.c"
+	"procedure.c"
+	"total.c"
+
+1706397518 d:\2ºsemestre\algoritmos\atividades-fora\project-sobremesa\main_header.h
+	<windows.h>
+	"control.h"
+
+1706413816 d:\2ºsemestre\algoritmos\atividades-fora\project-sobremesa\controls.c
+	"main_header.h"
+
+1705860334 d:\2ºsemestre\algoritmos\atividades-fora\project-sobremesa\menu.c
+	"main_header.h"
+
+1706414032 d:\2ºsemestre\algoritmos\atividades-fora\project-sobremesa\procedure.c
+	"main_header.h"
+
+1706396158 d:\2ºsemestre\algoritmos\atividades-fora\project-sobremesa\total.c
+	"main_header.h"
+
