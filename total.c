@@ -34,8 +34,7 @@ void calculateTotal()
     // Converter a string char[] para wide
     convertCharToWide(charText, wideText, wideSize);
 
-    // Agora você pode usar wideText com SetWindowTextW
-    wprintf(L"String wide apos a conversao: %ls\n", wideText);
+
     // Liberar a memória alocada
     free(wideText);
 

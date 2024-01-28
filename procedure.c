@@ -79,24 +79,64 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
     return 0;
 }
 
+// Função para verificar se o nome da sobremesa já existe na lista
+int findSobremesaIndex(char massName[20])
+{
+    printf("\n ordem: %d \n",ordem);
+    for (int i = 0; i < ordem; ++i)
+    {
+        if (strcmp(listaSobremesas[i].name, massName) == 0)
+        {
+            printf("\ntem\n");
+            return i; // Retorna o índice se o nome já existir
+        }
+    }
+     printf("\nnao tem\n");
+    return -1; // Retorna -1 se o nome não existir na lista
+}
+
 void AddCasq(char massName[20])
 {
     int before = listaSobremesas[ordem].quant;
     char productName[20] = "casquinha-";
-    strcat(productName, massName);
-    strcpy(listaSobremesas[ordem].name, productName);
-    listaSobremesas[ordem].quant += 1;  // Aumenta a quantidade em 1
-    listaSobremesas[ordem].price += value_casq;
 
+    int index = findSobremesaIndex(massName);
+
+    if (index != -1)
+    {
+        // O nome já existe na lista, apenas aumente a quantidade
+        listaSobremesas[index].quant += 1;
+        listaSobremesas[index].price += value_casq;
+    }
+    else
+    {
+
+        // O nome não existe, adicione um novo objeto à lista
+        strcpy(listaSobremesas[ordem].name, massName);
+        listaSobremesas[ordem].quant = 1;
+        listaSobremesas[ordem].price = value_casq;
+
+        // Incrementa o índice para a próxima posição livre na lista
+        ordem++;
+    }
+printf("\n ordem: %d \n",ordem);
     // Atualize o total antes de exibir o novo produto
-    if (before != listaSobremesas[ordem].quant)
+    if (before != listaSobremesas[ordem - 1].quant)
         calculateTotal();
 
-    // Adicione o produto à caixa de edição
-    char displayText[100];  // Ajuste o tamanho conforme necessário
-    sprintf(displayText, "Name: %s, Quantity: %d, Price: %.2f\n", listaSobremesas[ordem].name, listaSobremesas[ordem].quant, listaSobremesas[ordem].price);
+   // Construa o texto da caixa de edição
+    char displayText[500] = "";  // Ajuste o tamanho conforme necessário
+
+    for (int i = 0; i < ordem; ++i)
+    {
+        char productText[100];
+         sprintf(productText, "Name: %s, Quantity: %d, Price: %.2f \t\t\n", listaSobremesas[i].name, listaSobremesas[i].quant, listaSobremesas[i].price);
+    strcat(displayText, productText);
+   SetWindowText(hEditProductDetails, displayText);
+    }
+
 
     // Defina o texto da caixa de edição
-    SetWindowText(hEditProductDetails, displayText);
+  //  SetWindowText(hEditProductDetails, displayText);
     //selectedId=0;
 }
