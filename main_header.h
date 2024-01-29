@@ -4,13 +4,14 @@
 #include <windows.h>
 #include "control.h"
 
+//DEFINE MENU BUTTONS
 #define FILE_MENU_NEW 1
 #define FILE_MENU_OPEN 2
 #define FILE_MENU_EXIT 3
 
 #define EDIT_PRODUCT_DETAILS 1001
 
-// Products Button
+// DEFINE PRODUCT BUTTONS
 #define BUTTON_CASQUINHA 4
 #define BUTTON_SUNDAE 5
 #define BUTTON_TOPSUNDAE 6
@@ -19,17 +20,17 @@
 #define BUTTON_SHAKE 9
 
 
-// Mass Button
+// MASS BUTTON
 #define BUTTON_CREME 10
 #define BUTTON_MISTA 11
 #define BUTTON_CHOCOLATE 12
 
-
+//SAUCE BUTTONS
 #define BUTTON_CALD_CREME 13
 #define BUTTON_CALD_MISTA 14
 #define BUTTON_CALD_CHOCOLATE 15
 
-
+// ADD GLOBAL VARIABLES
 float value_casq = 3.50,
 value_colos = 4.00,
 value_sund = 6.90,
@@ -48,7 +49,7 @@ struct sobremesa
 };
 struct sobremesa listaSobremesas[20];
 
-
+// CREATE WINDOWSBUTTONS
 HWND hEditProductDetails;
 HWND hEditProductTotal;
 
@@ -67,6 +68,8 @@ HWND hButtonCaldaCh;
 HWND hButtonCaldaMo;
 HWND hButtonCaldaCa;
 
+
+//CREATE GLOBAL FUNCTIONS
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 void AddMenu(HWND);
 void AddControls(HWND);

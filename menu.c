@@ -2,6 +2,8 @@
 HMENU hMenus;
 HWND hEdit;
 
+
+//CREATE MENU BUTTONS ON THE WINDOWS
 void AddMenu(HWND hWnd)
 {
     hMenus = CreateMenu();

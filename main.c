@@ -5,7 +5,7 @@
 #include "total.c"
 
 
-
+// CREATE WINDOW WITH WINAPI
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {
     WNDCLASSW wc = {0};
